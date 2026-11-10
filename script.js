@@ -1,6 +1,43 @@
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("navMenu");
 const navLinks = document.querySelectorAll(".nav-menu a");
+const themeToggle = document.getElementById("themeToggle");
+const themeStorageKey = "dcy-portfolio-theme";
+
+function getSavedTheme() {
+  try {
+    const savedTheme = window.localStorage.getItem(themeStorageKey);
+    return savedTheme === "dark" || savedTheme === "light"
+      ? savedTheme
+      : "light";
+  } catch (error) {
+    console.error("Unable to read the saved theme preference.", error);
+    return "light";
+  }
+}
+
+function setTheme(theme) {
+  const isDark = theme === "dark";
+  document.documentElement.dataset.theme = theme;
+  themeToggle.setAttribute("aria-pressed", String(isDark));
+  const nextThemeLabel = `Switch to ${isDark ? "light" : "dark"} theme`;
+  themeToggle.setAttribute("aria-label", nextThemeLabel);
+  themeToggle.title = nextThemeLabel;
+}
+
+setTheme(getSavedTheme());
+
+themeToggle.addEventListener("click", function () {
+  const nextTheme =
+    document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  setTheme(nextTheme);
+
+  try {
+    window.localStorage.setItem(themeStorageKey, nextTheme);
+  } catch (error) {
+    console.error("Unable to save the theme preference.", error);
+  }
+});
 
 hamburger.addEventListener("click", function () {
   navMenu.classList.toggle("active");
