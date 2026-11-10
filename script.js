@@ -98,3 +98,92 @@ const navbar = document.querySelector(".navbar");
 window.addEventListener("scroll", function () {
   navbar.classList.toggle("scrolled", window.scrollY > 10);
 });
+
+/* CONTACT FORM */
+const contactForm = document.getElementById("contactForm");
+const submitBtn = document.getElementById("submitBtn");
+const buttonLabel = submitBtn.querySelector(".button-label");
+const formStatus = document.getElementById("formStatus");
+const formSubmitEndpoint =
+  "https://formsubmit.co/ajax/damexcodeyoruba@gmail.com";
+const minimumSubmitTime = 3000;
+let formStartedAt = Date.now();
+let statusTimeout;
+
+function showFormStatus(message, type) {
+  window.clearTimeout(statusTimeout);
+  formStatus.textContent = message;
+  formStatus.className = `form-status ${type}`;
+  formStatus.hidden = false;
+
+  if (type === "success") {
+    statusTimeout = window.setTimeout(function () {
+      formStatus.hidden = true;
+    }, 7000);
+  }
+}
+
+contactForm.addEventListener("input", function () {
+  if (!formStatus.hidden) {
+    window.clearTimeout(statusTimeout);
+    formStatus.hidden = true;
+    formStatus.textContent = "";
+    formStatus.className = "form-status";
+  }
+});
+
+contactForm.addEventListener("submit", async function (event) {
+  event.preventDefault();
+
+  if (Date.now() - formStartedAt < minimumSubmitTime) {
+    showFormStatus(
+      "Please wait a moment before submitting your message.",
+      "error",
+    );
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.setAttribute("aria-busy", "true");
+  submitBtn.classList.add("is-sending");
+  buttonLabel.textContent = "Sending...";
+  formStatus.hidden = true;
+
+  try {
+    const response = await fetch(formSubmitEndpoint, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+      },
+      body: new FormData(contactForm),
+    });
+    const result = await response.json();
+
+    if (
+      !response.ok ||
+      (result.success !== true && result.success !== "true")
+    ) {
+      throw new Error(
+        result.message || "The form service rejected the message.",
+      );
+    }
+
+    contactForm.reset();
+    formStartedAt = Date.now();
+    showFormStatus(
+      "Your message was submitted. I'll get back to you soon.",
+      "success",
+    );
+  } catch (error) {
+    console.error("Contact form submission failed.", error);
+    showFormStatus(
+      "Your message could not be sent. Please try again.",
+      "error",
+    );
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.setAttribute("aria-busy", "false");
+    submitBtn.classList.remove("is-sending");
+    buttonLabel.textContent = "Send Message";
+  }
+});

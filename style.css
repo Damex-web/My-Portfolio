@@ -22,6 +22,8 @@
   --color-primary-button: #1554f6;
   --color-primary-button-hover: #0d47d9;
   --color-primary-soft: #afc6f8;
+  --color-status-success: #187a3d;
+  --color-status-error: #c62828;
   --color-contrast-surface: #121212;
   --color-contrast-muted: #202020;
   --color-contrast-border: #303030;
@@ -51,6 +53,8 @@
   --color-primary-button: #315cdb;
   --color-primary-button-hover: #2548bb;
   --color-primary-soft: #283754;
+  --color-status-success: #72d99a;
+  --color-status-error: #ff8585;
   --color-contrast-surface: #0d0e11;
   --color-contrast-muted: #1a1b20;
   --color-contrast-border: #30323a;
@@ -908,6 +912,59 @@ footer p {
 .contact-form .btn {
   border: none;
   justify-self: start;
+  gap: 10px;
+}
+.contact-form .btn:disabled {
+  cursor: wait;
+  opacity: 0.8;
+  transform: none;
+}
+.contact-form .form-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  min-height: 0;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+.form-status {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+.form-status[hidden] {
+  display: none;
+}
+.form-status.success {
+  color: var(--color-status-success);
+}
+.form-status.error {
+  color: var(--color-status-error);
+}
+.button-spinner {
+  display: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+}
+.contact-form .btn.is-sending .button-spinner {
+  display: inline-block;
+  animation: button-spin 0.7s linear infinite;
+}
+@keyframes button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-form .btn.is-sending .button-spinner {
+    animation: none;
+    border-top-color: transparent;
+  }
 }
 
 .statistics {

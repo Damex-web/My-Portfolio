@@ -480,22 +480,56 @@
           >
         </div>
 
-        <form
-          class="contact-form"
-          name="contact"
-          method="POST"
-          data-netlify="true"
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          <input type="text" name="name" placeholder="Your name" required />
-          <input type="email" name="email" placeholder="Your email" required />
+        <form class="contact-form" id="contactForm" name="contact">
+          <input type="hidden" name="_captcha" value="false" />
+          <input
+            type="hidden"
+            name="_subject"
+            value="New portfolio contact message"
+          />
+          <input
+            class="form-honeypot"
+            type="text"
+            name="_honey"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
+          <input
+            type="text"
+            name="name"
+            placeholder="Your name"
+            autocomplete="name"
+            maxlength="100"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your email"
+            autocomplete="email"
+            maxlength="254"
+            required
+          />
           <textarea
             name="message"
             rows="5"
             placeholder="Tell me about your project"
+            maxlength="5000"
             required
           ></textarea>
-          <button type="submit" class="btn primary-btn">Send Message</button>
+          <button type="submit" class="btn primary-btn" id="submitBtn">
+            <span class="button-label">Send Message</span>
+            <span class="button-spinner" aria-hidden="true"></span>
+          </button>
+          <p
+            class="form-status"
+            id="formStatus"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+            hidden
+          ></p>
         </form>
       </div>
     </section>
