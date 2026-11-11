@@ -34,8 +34,6 @@ The current version focuses on the structure, layout, and visual design using HT
 - **CSS3**
 - **JavaScript**
 
-> JavaScript will be added in future updates.
-
 ## 📱 Responsive Design
 
 DCY Portfolio is designed to provide a good experience across different screen sizes.
