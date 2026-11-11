@@ -26,6 +26,17 @@
     />
     <meta property="og:url" content="https://dcyportfolio.netlify.app/" />
     <meta property="og:site_name" content="DCY Portfolio" />
+    <meta
+      property="og:image"
+      content="https://dcyportfolio.netlify.app/images/DCY%20Avater.png"
+    />
+    <meta property="og:image:alt" content="DCY portfolio avatar" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://dcyportfolio.netlify.app/images/DCY%20Avater.png"
+    />
+    <meta name="twitter:image:alt" content="DCY portfolio avatar" />
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -46,14 +57,18 @@
       referrerpolicy="no-referrer"
     />
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/DCY%20Avater.png" />
+    <link rel="apple-touch-icon" href="images/DCY%20Avater.png" />
+
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- ================= NAVBAR ================= -->
 
+    <!-- ================= NAVBAR ================= -->
     <header class="navbar">
       <div>
-        <a href="#logo" class="logo">DCY<span>.</span></a>
+        <a href="#home" class="logo">DCY<span>.</span></a>
       </div>
 
       <nav class="nav-menu" id="navMenu">
@@ -64,6 +79,18 @@
         <a href="#contact">Contact</a>
       </nav>
 
+      <button
+        class="theme-toggle"
+        id="themeToggle"
+        type="button"
+        aria-label="Switch to dark theme"
+        aria-pressed="false"
+        title="Switch to dark theme"
+      >
+        <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        <i class="fa-solid fa-sun" aria-hidden="true"></i>
+      </button>
+
       <a
         href="https://dcym.netlify.app"
         class="dcym primary-btn"
@@ -73,7 +100,7 @@
         <i class="fa-regular fa-comment-dots"></i>
       </a>
 
-      <button class="hamburger" id="hamburger">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span>
         <span></span>
         <span></span>
@@ -82,7 +109,7 @@
 
     <!-- ================= HERO ================= -->
 
-    <section class="hero">
+    <section class="hero" id="home">
       <div class="hero-content">
         <p class="hello">Hello, i'm</p>
         <h1>DCY</h1>
@@ -96,18 +123,8 @@
         </p>
 
         <div class="buttons">
-          <a
-            href="https://github.com/Damex-web"
-            target="_blank"
-            class="btn primary-btn"
-            >View My Work</a
-          >
-          <a
-            href="https://wa.me/2347054543604?text=Hi%20I%20came%20from%20your%20website"
-            target="_blank"
-            class="btn secondary-btn"
-            >Contact Me</a
-          >
+          <a href="#projects" class="btn primary-btn">View My Work</a>
+          <a href="#contact" class="btn secondary-btn">Contact Me</a>
         </div>
 
         <div class="social-icons">
@@ -171,13 +188,9 @@
           <span></span>
         </div>
 
-        <div class="imaage-wrapper">
+        <div class="image-wrapper">
           <div class="blue-circle"></div>
-          <img
-            src="images/DCY Avater.png"
-            alt="DCY Frontend Developer"
-            loading="lazy"
-          />
+          <img src="images/DCY Avater.png" alt="DCY Frontend Developer" />
           <div class="blue-dot"></div>
         </div>
 
@@ -209,6 +222,318 @@
       </div>
     </section>
 
+    <!-- ================= ABOUT ================= -->
+    <section class="section" id="about">
+      <p class="section-tag">About</p>
+      <h2 class="section-title">Building websites that <span>work</span></h2>
+      <div class="about-grid">
+        <p>
+          I'm DCY, a frontend developer based in Nigeria. I build clean,
+          responsive websites for small businesses and brands, from first sketch
+          to live deployment. I care about fast load times, clear layouts and
+          sites that look right on every screen.
+        </p>
+        <ul class="about-points">
+          <li>
+            <i class="fa-solid fa-check"></i> Responsive, mobile-first design
+          </li>
+          <li>
+            <i class="fa-solid fa-check"></i> Clean, readable HTML and CSS
+          </li>
+          <li>
+            <i class="fa-solid fa-check"></i> Fast delivery and clear
+            communication
+          </li>
+          <li><i class="fa-solid fa-check"></i> Currently learning React</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+    <section class="section" id="skills">
+      <p class="section-tag">Skills</p>
+      <h2 class="section-title">Tools I <span>use</span></h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <i class="fa-brands fa-html5"></i><span>HTML5</span>
+        </div>
+        <div class="skill-card">
+          <i class="fa-brands fa-css3-alt"></i><span>CSS3</span>
+        </div>
+        <div class="skill-card">
+          <i class="fa-brands fa-js"></i><span>JavaScript</span>
+        </div>
+        <div class="skill-card">
+          <i class="fa-brands fa-git-alt"></i><span>Git</span>
+        </div>
+        <div class="skill-card">
+          <i class="fa-brands fa-github"></i><span>GitHub</span>
+        </div>
+        <div class="skill-card">
+          <i class="fa-brands fa-figma"></i><span>Figma</span>
+        </div>
+        <div class="skill-card learning">
+          <i class="fa-brands fa-react"></i
+          ><span>React <small>(learning)</small></span>
+        </div>
+        <div class="skill-card">
+          <img
+            src="https://www.gstatic.com/mobilesdk/240501_mobilesdk/firebase_28dp.png"
+          />
+          <span>FireBase</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+    <section class="section" id="projects">
+      <p class="section-tag">Projects</p>
+      <h2 class="section-title">Selected <span>work</span></h2>
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="client">Client</button>
+        <button class="filter-btn" data-filter="personal">Personal</button>
+      </div>
+
+      <div class="projects-grid">
+
+        <article class="project-card" data-category="personal">
+          <div class="project-thumb">
+            <i class="fa-solid fa-comments"></i>
+            <img
+              src="images/lovesms.png"
+              alt="Love SMS website preview"
+              loading="lazy"
+              onerror="this.remove()"
+            />
+          </div>
+          <h3>Love SMS</h3>
+          <p>A romantic website for sharing love messages with your special one.</p>
+          <div class="tags">
+            <span>HTML</span><span>CSS</span><span>JS</span>
+          </div>
+          <div class="project-links">
+            <a href="#" target="_blank">Live</a>
+            <a href="https://github.com/Damex-web/Love-SMS" target="_blank">Code</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="client">
+          <div class="project-thumb">
+            <i class="fa-solid fa-couch"></i>
+            <img
+              src="images/horlad.webp"
+              alt="Horlad Furniture website preview"
+              loading="lazy"
+              onerror="this.remove()"
+            />
+          </div>
+          <h3>Horlad Furniture</h3>
+          <p>
+            Product-focused site for a furniture brand, built to turn visitors
+            into enquiries.
+          </p>
+          <div class="tags">
+            <span>HTML</span><span>CSS</span><span>JS</span>
+          </div>
+          <div class="project-links">
+            <a href="#" target="_blank">Live</a>
+            <a href="#" target="_blank">Code</a>
+          </div>
+        </article>
+
+        <!-- add live link later -->
+        <article class="project-card" data-category="client">
+          <div class="project-thumb">
+            <i class="fa-solid fa-bottle-water"></i>
+            <img
+              src="images/bigicola.png"
+              alt="Bigi Cola website preview"
+              loading="lazy"
+              onerror="this.remove()"
+            />
+          </div>
+          <h3>Bigi Cola Website</h3>
+          <p>
+            A modern and responsive Bigi Cola landing page built from scratch.
+          </p>
+          <div class="tags">
+            <span>HTML</span><span>CSS</span><span>JS</span>
+          </div>
+          <div class="project-links">
+            <a href="LIVE-URL" target="_blank">Live</a>
+            <a
+              href="https://github.com/Damex-web/Bigi-Cola-Website"
+              target="_blank"
+              >Code</a
+            >
+          </div>
+        </article>
+
+        <!-- add live link later -->
+        <article class="project-card" data-category="client">
+          <div class="project-thumb">
+            <i class="fa-solid fa-shirt"></i>
+            <img
+              src="images/zams.jpg"
+              alt="Zam's Laundry Service website preview"
+              loading="lazy"
+              onerror="this.remove()"
+            />
+          </div>
+          <h3>Zam's Laundry Service</h3>
+          <p>
+            Service Laundry website that helps customers see pricing and book a
+            pickup.
+          </p>
+          <div class="tags">
+            <span>HTML</span><span>CSS</span><span>JS</span>
+          </div>
+          <div class="project-links">
+            <a href="#" target="_blank">Live</a>
+            <a href="https://github.com/Damex-web/Zams-Laundry-Service" target="_blank">Code</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="personal">
+          <div class="project-thumb">
+            <i class="fa-regular fa-comment-dots"></i>
+            <img src="images/dcym.png" alt="DCYM Messenger website preview" loading="lazy" onerror="this.remove()" />
+          </div>
+          <h3>DCYM Messenger</h3>
+          <p>A chat app I built to practice real-time UI and app logic.</p>
+          <div class="tags">
+            <span>HTML</span><span>CSS</span><span>JS</span><span>FireBase</span>
+          </div>
+          <div class="project-links">
+            <a href="https://dcym.netlify.app" target="_blank">Live</a>
+            <a href="https://github.com/Damex-web" target="_blank">Code</a>
+          </div>
+        </article>
+
+        <!-- add live link later -->
+        <article class="project-card" data-category="client">
+          <div class="project-thumb">
+            <i class="fa-solid fa-utensils"></i>
+            <img
+              src="images/ladesdelish.jpg"
+              alt="Lades Delish website preview"
+              loading="lazy"
+              onerror="this.remove()"
+            />
+          </div>
+          <h3>Lades Delish</h3>
+          <p>Web presence for a chef and catering brand in Ibadan.</p>
+          <div class="tags">
+            <span>HTML</span><span>CSS</span><span>JS</span>
+          </div>
+          <div class="project-links">
+            <a href="#" target="_blank">Live</a>
+            <a href="https://github.com/Damex-web/LadesDelish" target="_blank">Code</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="personal">
+          <div class="project-thumb">
+            <i class="fa-solid fa-battery"></i>
+            <img
+              src="images/knowyourbattery.png"
+              alt="Know Your Battery website preview"
+              loading="lazy"
+              onerror="this.remove()"
+            />
+          </div>
+          <h3>Know Your Battery</h3>
+          <p>Calculate battery pack voltage, capacity, and energy.</p>
+          <div class="tags">
+            <span>HTML</span><span>CSS</span><span>JS</span>
+          </div>
+          <div class="project-links">
+            <a href="https://knowyourbattery.netlify.app" target="_blank"
+              >Live</a
+            >
+            <a
+              href="https://github.com/Damex-web/know-your-battery"
+              target="_blank"
+              >Code</a
+            >
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="section" id="contact">
+      <p class="section-tag">Contact</p>
+      <h2 class="section-title">Let's work <span>together</span></h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p>
+            Have a project in mind? Send a message and I'll reply within 24
+            hours.
+          </p>
+          <a
+            class="btn primary-btn"
+            target="_blank"
+            href="https://wa.me/2347054543604?text=Hi%20I%20came%20from%20your%20website"
+            ><i class="fa-brands fa-whatsapp"></i>&nbsp; Chat on WhatsApp</a
+          >
+        </div>
+
+        <form class="contact-form" id="contactForm" name="contact">
+          <input type="hidden" name="_captcha" value="false" />
+          <input
+            type="hidden"
+            name="_subject"
+            value="New portfolio contact message"
+          />
+          <input
+            class="form-honeypot"
+            type="text"
+            name="_honey"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
+          <input
+            type="text"
+            name="name"
+            placeholder="Your name"
+            autocomplete="name"
+            maxlength="100"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your email"
+            autocomplete="email"
+            maxlength="254"
+            required
+          />
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="Tell me about your project"
+            maxlength="5000"
+            required
+          ></textarea>
+          <button type="submit" class="btn primary-btn" id="submitBtn">
+            <span class="button-label">Send Message</span>
+            <span class="button-spinner" aria-hidden="true"></span>
+          </button>
+          <p
+            class="form-status"
+            id="formStatus"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+            hidden
+          ></p>
+        </form>
+      </div>
+    </section>
+
     <!-- ================= STATISTICS ================= -->
 
     <section class="statistics">
@@ -218,7 +543,7 @@
         </div>
         <div class="stat-text">
           <p>Projects</p>
-          <h3>10+</h3>
+          <h3>15+</h3>
         </div>
       </div>
 
@@ -242,7 +567,7 @@
         </div>
         <div class="stat-text">
           <p>Happy Clients</p>
-          <h3>15+</h3>
+          <h3>5+</h3>
         </div>
       </div>
     </section>
