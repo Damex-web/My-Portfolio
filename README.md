@@ -32,8 +32,7 @@ The current version focuses on the structure, layout, and visual design using HT
 
 - **HTML5**
 - **CSS3**
-
-> JavaScript will be added in future updates.
+- **JavaScript**
 
 ## 📱 Responsive Design
 
